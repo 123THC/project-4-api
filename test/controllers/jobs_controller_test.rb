@@ -24,7 +24,9 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update job" do
+
     patch job_url(@job), params: { job: { address_line1: @job.address_line1, address_line2: @job.address_line2, address_line3: @job.address_line3, address_line4: @job.address_line4, chosen_applicant_id: @job.chosen_applicant_id, date: @job.date, description: @job.description, hourly_rate: @job.hourly_rate, title: @job.title, user_id: @job.user_id } }, as: :json
+
     assert_response 200
   end
 
