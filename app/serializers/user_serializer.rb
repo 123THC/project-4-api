@@ -1,3 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :email, :password, :address_line1, :address_line2, :address_line3, :address_line4
+has_many :jobs_posted
+
+attributes :id, :username, :location, :jobs_posted
+
 end
