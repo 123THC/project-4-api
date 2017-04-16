@@ -1,6 +1,10 @@
 class PictureSerializer < ActiveModel::Serializer
-
-  attributes :id, :name, :image
   has_one :job
+
+  attributes :id, :name, :image, :image_src
+
+  def image_src
+    object.image.url
+  end
 
 end
