@@ -5,9 +5,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users, include: [
-        'jobs_applied_for'
-      ]
+    render json: @users
   end
 
   # GET /users/1

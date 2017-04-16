@@ -5,7 +5,9 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
 
-    render json: @jobs
+    render json: @jobs, include: [
+        'chosen_applicant_id'
+      ]
   end
 
   # GET /jobs/1
