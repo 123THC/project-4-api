@@ -17,7 +17,7 @@ class JobsController < ApplicationController
 
   # POST /jobs
   def create
-    @job = Job.new(job_params)
+    @job = Job.new(Uploader.upload(job_params))
     @job.user = current_user
 
     if @job.save
@@ -29,7 +29,7 @@ class JobsController < ApplicationController
 
   # PATCH/PUT /jobs/1
   def update
-    if @job.update(job_params)
+    if @job.update(Uploader.upload(job_params))
       render json: @job
     else
       render json: @job.errors, status: :unprocessable_entity
@@ -49,6 +49,6 @@ class JobsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def job_params
-      params.require(:job).permit(:title, :description, :date, :hourly_rate, :address_line1, :address_line2, :address_line3, :address_line4, :chosen_applicant_id, :user_id, applicant_ids: [])
+      params.require(:job).permit(:title, :description, :date, :hourly_rate, :address_line1, :address_line2, :address_line3, :address_line4, :chosen_applicant_id, :user_id, { applicant_ids: [] }, :base64)
     end
 end
