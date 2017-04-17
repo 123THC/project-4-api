@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   mount_uploader :image, ImageUploader
-  
+  has_secure_password validations: false
+
+  validates :username, uniqueness: true, presence: true
+  validates :email, uniqueness: true, presence: true
+
   has_many :messages
   has_many :jobs
 
@@ -13,6 +17,10 @@ class User < ApplicationRecord
 
   def location
     "#{address_line2}, #{address_line3}"
+  end
+
+  def oauth_login?
+    github_id.present?
   end
 
 end
