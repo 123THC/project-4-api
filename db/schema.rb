@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417175812) do
+ActiveRecord::Schema.define(version: 20170417182948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 20170417175812) do
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.string   "profile_picture"
     t.string   "address_line1"
     t.string   "address_line2"
     t.string   "address_line3"
@@ -90,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170417175812) do
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.integer  "github_id"
+    t.string   "image"
   end
 
   add_foreign_key "comments", "jobs"
