@@ -1,8 +1,8 @@
 class AuthenticationsController < ApplicationController
   skip_before_action :authenticate_user!
-  
+
   def register
-    user = User.new(user_params)
+    user = User.new(Uploader.upload(user_params))
     if user.save
       render json: user, status: :ok
     else
@@ -11,7 +11,7 @@ class AuthenticationsController < ApplicationController
   end
 
   def login
-    user = User.find_by_email(params[:email]) || User.find_by_username(params[:username])
+    user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       token = Auth.issue({ id: user.id })
       render json: { token: token, user: UserSerializer.new(user) }, status: :ok
@@ -22,6 +22,6 @@ class AuthenticationsController < ApplicationController
 
   private
   def user_params
-    Hash.new.merge! params.slice(:username, :email, :password, :password_confirmation, :profile_picture, :address_line1, :address_line2, :address_line3, :address_line4, :base64)
+    params.permit(:username, :email, :password, :password_confirmation, :profile_picture, :address_line1, :address_line2, :address_line3, :address_line4, :base64)
   end
 end
