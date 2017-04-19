@@ -5,7 +5,7 @@ class JobSerializer < ActiveModel::Serializer
   has_many :pictures
   has_many :categories
 
-  attributes :id, :title, :description, :date, :hourly_rate, :address_line1, :address_line2, :address_line3, :address_line4, :postedBy, :image_src, :categories, :applicant_ids
+  attributes :id, :title, :description, :date, :hourly_rate, :address_line1, :address_line2, :address_line3, :address_line4, :postedBy, :image_src, :categories, :applicants, :applicant_ids
 
   def postedBy
     "#{object.user.username}"
