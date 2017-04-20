@@ -1,11 +1,11 @@
 class JobSerializer < ActiveModel::Serializer
-  has_one :user
-  has_one :chosen_applicant_id
+  belongs_to :user
+  belongs_to :chosen_applicant
   has_many :applicants
   has_many :pictures
   has_many :categories
 
-  attributes :id, :title, :description, :date, :hourly_rate, :address_line1, :address_line2, :address_line3, :address_line4, :postedBy, :image_src, :categories, :applicants, :applicant_ids
+  attributes :id, :title, :description, :date, :hourly_rate, :address_line1, :address_line2, :address_line3, :address_line4, :postedBy, :image_src, :categories, :applicants, :applicant_ids, :chosen_applicant
 
   def postedBy
     "#{object.user.username}"
