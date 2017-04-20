@@ -8,7 +8,8 @@ class Job < ApplicationRecord
   validates :title, presence: true, length: { maximum: 25 }
 
 
-  belongs_to :chosen_applicant, class_name: 'User', foreign_key: 'chosen_applicant_id'
+
+  belongs_to :chosen_applicant, class_name: 'User', foreign_key: 'chosen_applicant_id', optional: true
   has_and_belongs_to_many :applicants, class_name: 'User', join_table: 'jobs_users'
 
 end
