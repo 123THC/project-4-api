@@ -5,7 +5,7 @@ class Job < ApplicationRecord
   has_many :pictures
   has_and_belongs_to_many :categories
 
-  validates :title, presence: true, length: { maximum: 25 }
+  validates :title, presence: true, length: { maximum: 35 }
 
 
 
