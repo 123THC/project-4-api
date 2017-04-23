@@ -1,6 +1,7 @@
 class CommentSerializer < ActiveModel::Serializer
 
+  belongs_to :user
+  belongs_to :job
+  
   attributes :id, :body, :rating
-  has_one :user
-  has_one :job
 end

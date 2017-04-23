@@ -3,6 +3,7 @@ class Job < ApplicationRecord
 
   belongs_to :user
   has_many :pictures
+  has_many :comments
   has_and_belongs_to_many :categories
 
   validates :title, presence: true, length: { maximum: 35 }
