@@ -19,9 +19,11 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(Uploader.upload(job_params))
     @job.user = current_user
+    @user = User.find_by_id(@job.user_id)
 
     if @job.save
       render json: @job, status: :created, location: @job
+      UserMailer.new_job_email(@user, @job).deliver
     else
       render json: @job.errors, status: :unprocessable_entity
     end
