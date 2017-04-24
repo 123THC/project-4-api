@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   def new_job_email(user, job)
     @user = user
     @job = job.id
-    @url  = 'http://localhost:7000/jobs'
+    @url  = 'https://warm-reef-46815.herokuapp.com/jobs'
     mail(to: @user.email, subject: 'Your Job has been listed')
   end
 end
