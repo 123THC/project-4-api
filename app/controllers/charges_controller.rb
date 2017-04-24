@@ -14,6 +14,7 @@ class ChargesController < ApplicationController
       :currency    => 'gbp'
     )
 
+    Job.destroy params[:job_id]
     render json: { message: "Payment accepted" }, status: :ok
 
   rescue Stripe::CardError => e
