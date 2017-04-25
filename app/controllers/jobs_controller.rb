@@ -26,7 +26,6 @@ class JobsController < ApplicationController
       UserMailer.new_job_email(@user, @job).deliver
     else
       render json: @job.errors, status: :unprocessable_entity
-      UserMailer.new_job_email(@user, @job).deliver
     end
   end
 
