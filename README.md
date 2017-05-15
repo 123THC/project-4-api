@@ -1,6 +1,7 @@
 # OddJob
 
 ###GA WDI London - Project 4
+###View Project 4 frontend README for images of site
 
 #### Introducing OddJob
 
@@ -8,24 +9,15 @@ This website is a job site but specifically for odd jobs, hence the name. Users 
 
 #####[View it here!](https://warm-reef-46815.herokuapp.com/)
 
-
-![](/src/images/websitelandingpage.png)
-
-
 #####The Build
 
 I built this project using Ruby on Rails, JavaScript, AngularJS, HTML, SASS, postrgreSQL database, Stripe, AWS and Bootstrap. I integrated the Stripe payment system which allows users to make a payment once they have selected which user from their pool of applicants is going to complete the job. I also used the Rails mailer which was hooked up to send the user an email once they had successfully posted their job.
-
-
-![](/src/images/jobsIndexPage.png)
 
 ####Approach / How it works
 
 The website is very simple to use and that was one of the main things I wanted to make sure when building it. I wanted the site to be able to be used by a variety of different people and therefore making a very clear and easy user experience was fundamental. On the index page for the current jobs listed, you filter through the jobs based on a search query, the pay of the job (high to low and vice versa) and also filtering through which categories you would be interested in such as cleaning, home maintenance, high pay etc.
 
 When the user posts their job, they are asked to give a description of the work involved, the hourly rate, the date they wish to have the work done and then to select which categories they feel the job falls into. On the index page of the jobs, the main image is displayed as well as having an icon representing one of the categories that the job falls into on top of the image.
-
-
 
 #### Problems & Challenges
 
